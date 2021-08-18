@@ -1,0 +1,7 @@
+image_build_method: imagebuilder
+remote_source:
+  repo: https://github.com/nginx/njs.git
+  ref: ff77c9d157d3eca0cc9cdebeb909d252872e6cfc # 0.4.0
+  pkg_managers: []
+compose:
+  pulp_repos: true

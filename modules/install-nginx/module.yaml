@@ -1,0 +1,6 @@
+name: install-nginx
+version: 1.0
+description: "Module used to install nginx"
+
+execute:
+- script: install.sh

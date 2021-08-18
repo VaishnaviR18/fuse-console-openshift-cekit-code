@@ -1,0 +1,6 @@
+[rhel-8-for-x86_64-appstream-source-rpms]
+name=Red Hat RHEL8 Appstream Source repository
+baseurl=http://rhsm-pulp.corp.redhat.com/content/dist/rhel8/8/x86_64/appstream/source/SRPMS
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release

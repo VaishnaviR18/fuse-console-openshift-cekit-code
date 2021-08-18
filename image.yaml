@@ -1,0 +1,102 @@
+- name: "builder"
+  from: "registry-proxy.engineering.redhat.com/rh-osbs/ubi8/ubi"
+  version: "1.0.0"
+
+  modules:
+    repositories:
+      - name: modules
+        path: modules
+    install:
+      - name: environ
+      - name: install-pkgs
+      - name: rhel-source
+      - name: nginx-source
+ 
+#final image
+
+- name: &name "fuse7/fuse-console-rhel8"
+  from: "registry-proxy.engineering.redhat.com/rh-osbs/ubi8/ubi-minimal"
+  version: &version "1.9"
+  description: "The Red Hat Fuse console helps discovering and managing Fuse applications deployed on OpenShift."
+
+  labels:
+  - name: "com.redhat.component"
+    value: "fuse-console-openshift-rhel-8-container"
+  - name: "maintainer"
+    value: "Otavio Piske <opiske@redhat.com>"  
+  - name: "architecture"
+    value: "x86_64"   
+  - name: "io.k8s.description"  
+    value: "The Red Hat Fuse console helps discovering and managing Fuse applications deployed on OpenShift."
+  - name: "io.k8s.display-name"
+    value: "Red Hat Fuse Console"
+  - name: "io.openshift.expose-services"
+    value: "8443:https"  
+  - name: "io.openshift.tags"
+    value: "fuse,hawtio"
+
+  run:
+    user: 999
+
+  artifacts:
+  - name: nginx.sh
+    path: nginx.sh
+    dest: /
+  
+  - name: osconsole/config.sh
+    path: osconsole/config.sh
+    dest: /
+    
+  - name: ACL.yaml
+    path: ACL.yaml
+    dest: /  
+
+  - name: favicon.ico
+    path: branding/favicon.ico
+    dest: /opt/app-root/src/online/img/
+  
+  - name: Logo-Red_Hat-Fuse-A-Reverse-RGB.png
+    path: branding/Logo-Red_Hat-Fuse-A-Reverse-RGB.png
+    dest: /opt/app-root/src/online/img/
+
+  - name: Logo-RedHat-A-Reverse-RGB.png
+    path: branding/Logo-RedHat-A-Reverse-RGB.png
+    dest: /opt/app-root/src/online/img/  
+
+  - name: hawtconfig.json
+    path: branding/hawtconfig.json
+    dest: /opt/app-root/src/online 
+
+  - name: hawtconfig.json
+    path: branding/hawtconfig.json
+    dest: /opt/app-root/src/integration
+
+  - image: builder
+    path: /root/rpmbuild/SOURCES/nginx-src/objs/ngx_http_js_module.so
+    dest: /usr/share/nginx/modules/
+
+  modules:
+    repositories:
+      - name: modules
+        path: modules
+    install:
+      - name: environ-var
+      - name: install-nginx
+      - name: licenses
+      - name: config
+      - name: hawtio-online
+
+  run:  
+    user: 999
+    user: 1001
+    cmd: 
+      - "/bin/bash"
+      - "-c"
+      - "/nginx.sh"    
+
+#osbs:
+ # configuration:
+  #  container_file: container.yaml
+   #   repository:
+    #        name: containers/fuse-console-openshift
+     #       branch: fuse-7.9-openshift-rhel-8 branch

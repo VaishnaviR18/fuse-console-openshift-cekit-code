@@ -1,0 +1,13 @@
+schema_version: 1
+
+name: environ
+version: 1.0
+description: "Add envs"
+
+envs:
+  - name: NGINX_MAJOR_VERSION
+    value: "1"
+  - name: NGINX_MINOR_VERSION
+    value: "14"
+  - name: NGINX_BUILD_VERSION
+    value: "1"

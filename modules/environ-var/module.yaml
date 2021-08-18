@@ -1,0 +1,19 @@
+schema_version: 1
+
+name: environ-var
+version: 1.0
+description: "Add envs"
+
+envs:
+  - name: NGINX_MAJOR_VERSION
+    value: "1"
+  - name: NGINX_MINOR_VERSION
+    value: "14"
+  - name: NGINX_BUILD_VERSION
+    value: "1"
+  - name: HAWTIO_ONLINE_VERSION
+    value: "1.0.0.fuse-790030-redhat-00001"
+  - name: NGINX_CONFIGURATION_PATH
+    value: "/opt/app-root/etc/nginx.d"
+  - name: NGINX_DEFAULT_CONF_PATH
+    value: "/opt/app-root/etc/nginx.default.d"    

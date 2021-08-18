@@ -1,0 +1,6 @@
+name: config
+version: 1.0
+
+execute:
+- script: config.sh
+- script: install.sh

@@ -1,0 +1,14 @@
+schema_version: 1
+
+name: hawtio-online
+version: 1.0
+  
+artifacts:
+- name: "hawtio-online"
+  sha512: "4f2ae85a2104f499b26801c6ceda30b6d8054c040011710d13cb92a25465e4d79649b404303a3bf94e567dbb691961ea19ea8fcd08735f94fd221c93540b187e"
+  url: "http://indy.psi.redhat.com/api/content/maven/group/redhat-builds/io/hawt/hawtio-online/1.0.0.fuse-790030-redhat-00001/hawtio-online-1.0.0.fuse-790030-redhat-00001-dist.tar.gz"
+  dest: "/opt/app-root/src/"
+  target: hawtio-online-1.0.0.fuse-790030-redhat-00001-dist.tar.gz
+
+execute:
+- script: install.sh

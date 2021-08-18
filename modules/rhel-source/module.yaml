@@ -1,0 +1,6 @@
+name: rhel-source
+version: 1.0
+description: "Module used to copy rhel-source.repo"
+
+execute:
+- script: install.sh
